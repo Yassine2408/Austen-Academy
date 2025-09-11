@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Austen Academy - Centre de Formation et Langues à Kénitra</title>
+    <meta name="description" content="Centre de formation professionnelle et de langues à Kénitra. Formations en anglais, français, allemand, bureautique, soutien scolaire et délégué médical. +500 étudiants formés avec succès.">
+    <meta name="keywords" content="formation, langues, anglais, français, allemand, bureautique, soutien scolaire, Kénitra, Maroc, délégué médical, Microsoft Office">
+    <meta name="author" content="Austen Academy">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="French">
+    <meta name="geo.region" content="MA-04">
+    <meta name="geo.placename" content="Kénitra">
+    <meta name="geo.position" content="34.2610;-6.5804">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://austenacademy.ma/">
+    <meta property="og:title" content="Austen Academy - Centre de Formation et Langues à Kénitra">
+    <meta property="og:description" content="Centre de formation professionnelle et de langues à Kénitra. +500 étudiants formés avec succès. Formations en anglais, français, allemand, bureautique et plus.">
+    <meta property="og:image" content="Logo.jpeg">
+    <meta property="og:locale" content="fr_MA">
+    <meta property="og:site_name" content="Austen Academy">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://austenacademy.ma/">
+    <meta property="twitter:title" content="Austen Academy - Centre de Formation et Langues à Kénitra">
+    <meta property="twitter:description" content="Centre de formation professionnelle et de langues à Kénitra. +500 étudiants formés avec succès.">
+    <meta property="twitter:image" content="Logo.jpeg">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#004aad">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Austen Academy">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="Logo.jpeg">
+    <link rel="shortcut icon" type="image/jpeg" href="Logo.jpeg">
+    <link rel="apple-touch-icon" href="Logo.jpeg">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" as="style">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "EducationalOrganization",
+        "name": "Austen Academy",
+        "alternateName": "Centre de Formation et Langues Austen Academy",
+        "description": "Centre de formation professionnelle et de langues à Kénitra offrant des cours d'anglais, français, allemand, bureautique, soutien scolaire et formation délégué médical.",
+        "url": "https://austenacademy.ma",
+        "logo": "https://austenacademy.ma/Logo.jpeg",
+        "image": "https://austenacademy.ma/Austen Academy Students in Kénitra.png",
+        "telephone": ["+212660368628", "+212710969694"],
+        "email": "info@austenacademymaroc.com",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "6 Boulevard Hassan II, Résidence Al Hassan, 5ᵉ étage, N°36 & 37",
+            "addressLocality": "Kénitra",
+            "addressCountry": "MA"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "34.2610",
+            "longitude": "-6.5804"
+        },
+        "sameAs": [
+            "https://www.instagram.com/austenacademy/",
+            "https://wa.me/212660368628"
+        ],
+        "offers": [
+            {
+                "@type": "Course",
+                "name": "English Language Course",
+                "description": "Cours d'anglais pour tous niveaux",
+                "provider": {
+                    "@type": "EducationalOrganization",
+                    "name": "Austen Academy"
+                }
+            },
+            {
+                "@type": "Course",
+                "name": "Formation Bureautique",
+                "description": "Formation Microsoft Office: Word, Excel, PowerPoint",
+                "provider": {
+                    "@type": "EducationalOrganization",
+                    "name": "Austen Academy"
+                }
+            },
+            {
+                "@type": "Course",
+                "name": "Soutien Scolaire",
+                "description": "Soutien en mathématiques, physique et SVT",
+                "provider": {
+                    "@type": "EducationalOrganization",
+                    "name": "Austen Academy"
+                }
+            }
+        ],
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5",
+            "reviewCount": "500"
+        }
+    }
+    </script>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-content">
+            <img src="Logo.jpeg" alt="Austen Academy" class="loading-logo">
+            <div class="loading-spinner">
+                <div class="spinner"></div>
+            </div>
+            <p class="loading-text">Chargement en cours...</p>
+        </div>
+    </div>
+    <!-- Navigation Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-brand">
+                    <img src="Logo.jpeg" alt="Austen Academy Logo" class="logo">
+                    <h2>Austen Academy</h2>
+                </div>
+                <div class="nav-menu" id="nav-menu">
+                    <ul class="nav-list">
+                        <li class="nav-item"><a href="#home" class="nav-link">Accueil</a></li>
+                        <li class="nav-item"><a href="#about" class="nav-link">À Propos</a></li>
+                        <li class="nav-item"><a href="#services" class="nav-link">Formations</a></li>
+                        <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="nav-toggle" id="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background"></div>
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Learn, Grow, Succeed with Austen Academy</h1>
+                <p class="hero-subtitle">Centre de Formation et Langues à Kénitra</p>
+                <p class="hero-tagline">Des formations de qualité adaptées aux étudiants, professionnels et entreprises.</p>
+                <div class="hero-social-proof">
+                    <span class="social-proof-text">+500 étudiants formés avec succès</span>
+                </div>
+                <div class="hero-cta">
+                    <a href="#services" class="cta-button primary">Nos Formations</a>
+                    <a href="#contact" class="cta-button secondary">Contactez-nous</a>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Hero Key Points -->
+    <section class="hero-key-points">
+        <div class="container">
+            <div class="key-points-grid">
+                <div class="key-point">
+                    <div class="key-point-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Langues</h3>
+                    <p>Anglais, Français, Espagnol</p>
+                </div>
+                <div class="key-point">
+                    <div class="key-point-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>Formations professionnelles</h3>
+                    <p>Informatique, Bureautique, Soft Skills</p>
+                </div>
+                <div class="key-point">
+                    <div class="key-point-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>Coaching & Développement</h3>
+                    <p>Orientation, Concours, Personnel</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">À Propos de Nous</h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="about-content">
+                <div class="about-story">
+                    <div class="story-text">
+                        <h3>Notre Histoire</h3>
+                        <p class="about-description">
+                            Fondée avec la vision de démocratiser l'accès à une formation de qualité, Austen Academy 
+                            est née de la passion de créer un pont entre l'éducation traditionnelle et les besoins 
+                            du marché moderne. Située au cœur de Kénitra, notre académie s'est donnée pour mission 
+                            d'accompagner chaque apprenant dans son parcours de développement personnel et professionnel.
+                        </p>
+                        <p class="about-mission">
+                            <strong>Notre Mission :</strong> Offrir des formations adaptées, un encadrement personnalisé 
+                            et un environnement d'apprentissage stimulant pour permettre à nos étudiants, professionnels 
+                            et partenaires entreprises de réaliser leur plein potentiel.
+                        </p>
+                        <div class="about-values">
+                            <div class="value-item">
+                                <i class="fas fa-star"></i>
+                                <span>Qualité</span>
+                            </div>
+                            <div class="value-item">
+                                <i class="fas fa-hands-helping"></i>
+                                <span>Accompagnement</span>
+                            </div>
+                            <div class="value-item">
+                                <i class="fas fa-trophy"></i>
+                                <span>Réussite</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="story-image">
+                        <img data-src="Austen Academy Students in Kénitra.png" alt="Étudiants Austen Academy" class="about-img lazy" loading="lazy">
+                        <div class="company-info">
+                            <div class="info-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <strong>Adresse</strong>
+                                    <p>6 Boulevard Hassan II, Résidence Al Hassan<br>5ᵉ étage, N°36 & 37 – Kénitra</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Key Figures -->
+            <div class="key-figures">
+                <div class="container">
+                    <div class="figures-grid">
+                        <div class="figure-card">
+                            <div class="figure-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div class="figure-number" data-target="500">0</div>
+                            <div class="figure-label">Étudiants formés</div>
+                        </div>
+                        <div class="figure-card">
+                            <div class="figure-icon">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <div class="figure-number" data-target="25">0</div>
+                            <div class="figure-label">Formations disponibles</div>
+                        </div>
+                        <div class="figure-card">
+                            <div class="figure-icon">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <div class="figure-number" data-target="10">0</div>
+                            <div class="figure-label">Partenariats entreprises</div>
+                        </div>
+                        <div class="figure-card">
+                            <div class="figure-icon">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <div class="figure-number" data-target="5">0</div>
+                            <div class="figure-label">Ans d'expérience</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Nos Formations & Services</h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-flag-usa"></i>
+                    </div>
+                    <h3 class="service-title">English Language Course</h3>
+                    <p class="service-subtitle">Unlock Your English Potential</p>
+                    <p class="service-description">
+                        Développez votre potentiel en anglais avec nos cours adaptés à tous les niveaux. 
+                        Méthodes modernes pour parler comme un local.
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Speak like a local, live like a local</li>
+                        <li><i class="fas fa-check"></i> Supports modernes (vidéos, audio, jeux)</li>
+                        <li><i class="fas fa-check"></i> Petits groupes pour progresser vite</li>
+                        <li><i class="fas fa-check"></i> Échanges linguistiques & échanges culturels</li>
+                        <li><i class="fas fa-check"></i> Tests de niveau gratuits & conseils</li>
+                    </ul>
+                    <a href="#contact" class="service-btn">En savoir plus</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-flag"></i>
+                    </div>
+                    <h3 class="service-title">Cours de Français</h3>
+                    <p class="service-subtitle">French Language Course</p>
+                    <p class="service-description">
+                        Maîtrisez la langue française avec nos méthodes interactives et modernes. 
+                        Speak like a local, live like a local !
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Supports modernes (vidéos, audio, jeux)</li>
+                        <li><i class="fas fa-check"></i> Petits groupes pour progresser vite</li>
+                        <li><i class="fas fa-check"></i> Assistants Langues & échanges culturels</li>
+                        <li><i class="fas fa-check"></i> Tests de niveau gratuits & conseils</li>
+                        <li><i class="fas fa-check"></i> Offre de lancement exclusive</li>
+                    </ul>
+                    <a href="#contact" class="service-btn">En savoir plus</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-flag" style="color: #000;"></i>
+                    </div>
+                    <h3 class="service-title">German Language Course</h3>
+                    <p class="service-subtitle">Cours d'Allemand</p>
+                    <p class="service-description">
+                        Apprenez l'allemand avec nos méthodes pédagogiques modernes. 
+                        Speak like a local, live like a local !
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Supports modernes (vidéos, audio, jeux)</li>
+                        <li><i class="fas fa-check"></i> Petits groupes pour progresser vite</li>
+                        <li><i class="fas fa-check"></i> Assistants Langues & échanges culturels</li>
+                        <li><i class="fas fa-check"></i> Tests de niveau gratuits & conseils</li>
+                        <li><i class="fas fa-check"></i> Offre de lancement exclusive</li>
+                    </ul>
+                    <a href="#contact" class="service-btn">En savoir plus</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-desktop"></i>
+                    </div>
+                    <h3 class="service-title">Formation Bureautique</h3>
+                    <p class="service-subtitle">Word • Excel • PowerPoint • Outlook</p>
+                    <p class="service-description">
+                        Maîtrisez les outils bureautiques essentiels pour le monde professionnel. 
+                        Formation pratique sur Microsoft Office et applications bureautiques.
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Microsoft Word - Traitement de texte</li>
+                        <li><i class="fas fa-check"></i> Excel - Tableaux et calculs avancés</li>
+                        <li><i class="fas fa-check"></i> PowerPoint - Présentations professionnelles</li>
+                        <li><i class="fas fa-check"></i> Outlook - Gestion emails et agenda</li>
+                        <li><i class="fas fa-check"></i> Techniques de saisie et mise en forme</li>
+                    </ul>
+                    <a href="#contact" class="service-btn">En savoir plus</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3 class="service-title">Soutien Scolaire</h3>
+                    <p class="service-subtitle">Maths • Physique • SVT</p>
+                    <p class="service-description">
+                        Soutien scolaire spécialisé pour les matières scientifiques. 
+                        Collège & Lycée avec des professeurs expérimentés.
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Mathématiques tous niveaux</li>
+                        <li><i class="fas fa-check"></i> Physique-Chimie</li>
+                        <li><i class="fas fa-check"></i> Sciences de la Vie et de la Terre</li>
+                        <li><i class="fas fa-check"></i> Préparation examens et contrôles</li>
+                        <li><i class="fas fa-check"></i> Méthodologie et techniques d'étude</li>
+                    </ul>
+                    <a href="#contact" class="service-btn">En savoir plus</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <h3 class="service-title">Formation Déléguée Médical</h3>
+                    <p class="service-subtitle">Programme Complet • Certification</p>
+                    <p class="service-description">
+                        Formation complète pour devenir délégué médical. 
+                        Programme certifiant avec stage pratique et accompagnement professionnel.
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Anatomie et physiologie</li>
+                        <li><i class="fas fa-check"></i> Pharmacologie et pathologie</li>
+                        <li><i class="fas fa-check"></i> Techniques de vente médicale</li>
+                        <li><i class="fas fa-check"></i> Stage pratique en entreprise</li>
+                        <li><i class="fas fa-check"></i> Certification reconnue</li>
+                    </ul>
+                    <a href="#contact" class="service-btn">En savoir plus</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Student Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Ce que disent nos étudiants</h2>
+                <div class="section-divider"></div>
+                <p class="section-subtitle">Découvrez les témoignages de nos étudiants qui ont réussi grâce à Austen Academy</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="quote-icon">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            "Grâce aux cours d'anglais à Austen Academy, j'ai décroché un poste dans une entreprise internationale. 
+                            Les professeurs sont excellents et la méthode d'apprentissage est très efficace !"
+                        </p>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>Amina Benali</h4>
+                            <span>Étudiante en Anglais</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="quote-icon">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            "La formation en bureautique m'a permis de maîtriser Excel et PowerPoint. 
+                            Maintenant je suis beaucoup plus efficace au travail. Je recommande vivement !"
+                        </p>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>Omar Alaoui</h4>
+                            <span>Formation Bureautique</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="quote-icon">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            "Le soutien scolaire en mathématiques a transformé mes résultats. 
+                            J'ai réussi mon Bac avec mention grâce à l'équipe pédagogique d'Austen Academy !"
+                        </p>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>Fatima Zahra</h4>
+                            <span>Soutien Scolaire</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Notre Environnement d'Apprentissage</h2>
+                <div class="section-divider"></div>
+                <p class="section-subtitle">Découvrez nos espaces modernes et équipés pour votre réussite</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <div class="gallery-image">
+                        <img data-src="Austen Academy Students in Kénitra.png" alt="Salle de classe moderne" class="gallery-img lazy" loading="lazy">
+                        <div class="gallery-overlay">
+                            <div class="gallery-content">
+                                <h4>Salles de Classe Modernes</h4>
+                                <p>Espaces climatisés et équipés des dernières technologies</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="gallery-image">
+                        <img data-src="Logo.jpeg" alt="Laboratoire informatique" class="gallery-img lazy" loading="lazy">
+                        <div class="gallery-overlay">
+                            <div class="gallery-content">
+                                <h4>Laboratoire Informatique</h4>
+                                <p>Ordinateurs récents avec logiciels professionnels</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="gallery-image">
+                        <img data-src="Austen Academy Students in Kénitra.png" alt="Espace détente" class="gallery-img lazy" loading="lazy">
+                        <div class="gallery-overlay">
+                            <div class="gallery-content">
+                                <h4>Espace Détente</h4>
+                                <p>Zone de repos et d'échanges entre étudiants</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="gallery-image">
+                        <img data-src="Logo.jpeg" alt="Bibliothèque" class="gallery-img lazy" loading="lazy">
+                        <div class="gallery-overlay">
+                            <div class="gallery-content">
+                                <h4>Centre de Ressources</h4>
+                                <p>Bibliothèque et supports pédagogiques</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Media Section -->
+    <section class="social-media-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Suivez-nous sur Instagram</h2>
+                <div class="section-divider"></div>
+                <p class="section-subtitle">Découvrez la vie étudiante à Austen Academy et restez connectés avec notre communauté</p>
+            </div>
+            <div class="instagram-showcase">
+                <div class="instagram-card">
+                    <div class="instagram-header">
+                        <div class="instagram-profile">
+                            <img src="Logo.jpeg" alt="Austen Academy" class="instagram-avatar">
+                            <div class="instagram-info">
+                                <h3>@austenacademy</h3>
+                                <p>Austen Academy</p>
+                            </div>
+                        </div>
+                        <a href="https://www.instagram.com/austenacademy/" target="_blank" class="instagram-follow-btn">
+                            <i class="fab fa-instagram"></i>
+                            Suivre
+                        </a>
+                    </div>
+                    <div class="instagram-content">
+                        <div class="instagram-post">
+                            <img data-src="Austen Academy Students in Kénitra.png" alt="Étudiants Austen Academy" class="instagram-image lazy" loading="lazy">
+                        </div>
+                        <div class="instagram-caption">
+                            <p><strong>@austenacademy</strong> 🎓 Unlock Your English Potential ! Formation de qualité dans un environnement moderne à Kénitra. 
+                            English • Français • Deutsch • Bureautique • Soutien scolaire • Délégué Médical 📚✨
+                            <br><br>#AustenAcademy #Formation #Kénitra #English #Français #German #Bureautique #SoutienScolaire #DéléguéMédical #Word #Excel #PowerPoint</p>
+                            <div class="instagram-engagement">
+                                <div class="instagram-actions">
+                                    <i class="far fa-heart"></i>
+                                    <i class="far fa-comment"></i>
+                                    <i class="far fa-paper-plane"></i>
+                                </div>
+                                <p class="instagram-likes">Aimé par <strong>500+</strong> personnes</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="instagram-cta">
+                    <h3>Rejoignez notre communauté</h3>
+                    <p>Suivez-nous pour découvrir nos formations, événements et témoignages d'étudiants</p>
+                    <a href="https://www.instagram.com/austenacademy/" target="_blank" class="instagram-cta-btn">
+                        <i class="fab fa-instagram"></i>
+                        Voir sur Instagram
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Contactez-Nous</h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <div>
+                            <h3>WhatsApp</h3>
+                            <p>+212 6 60 36 86 28</p>
+                            <p>+212 7 10 96 96 94</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>Email</h3>
+                            <p>info@austenacademymaroc.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-share-alt"></i>
+                        <div>
+                            <h3>Réseaux Sociaux</h3>
+                            <div class="social-links">
+                        <a href="https://www.instagram.com/austenacademy/" target="_blank" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                            @austenacademy
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-facebook"></i>
+                            Austen Academy Maroc
+                        </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form-container">
+                    <form class="contact-form" id="contact-form">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" required>
+                            <label for="name">Nom complet</label>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" required>
+                            <label for="email">Email</label>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="tel" id="phone" name="phone" required>
+                            <label for="phone">Téléphone</label>
+                        </div>
+                        
+                        <div class="form-group">
+                            <select id="course" name="course" required>
+                                <option value="">Sélectionnez une formation</option>
+                                <option value="english">English Language Course</option>
+                                <option value="french">Cours de Français</option>
+                                <option value="german">German Language Course</option>
+                                <option value="bureautique">Formation Bureautique</option>
+                                <option value="soutien">Soutien Scolaire</option>
+                                <option value="medical">Formation Déléguée Médical</option>
+                                <option value="other">Autre formation</option>
+                            </select>
+                            <label for="course">Formation souhaitée</label>
+                        </div>
+
+                        
+                        <div class="form-group">
+                            <textarea id="message" name="message" rows="4" required></textarea>
+                            <label for="message">Message ou questions</label>
+                        </div>
+                        
+                        <button type="submit" class="submit-button">
+                            <i class="fas fa-paper-plane"></i>
+                            Demander des informations
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Google Map -->
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3307.8!2d-6.5804!3d34.2610!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzTCsDE1JzM5LjYiTiA2wrAzNCc0OS40Ilc!5e0!3m2!1sen!2sma!4v1620000000000!5m2!1sen!2sma"
+                    width="100%" 
+                    height="400" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="Logo.jpeg" alt="Austen Academy Logo" class="footer-logo-img">
+                        <h3>Austen Academy</h3>
+                    </div>
+                    <p>Centre de Formation et Langues à Kénitra</p>
+                    <p>Votre partenaire pour un avenir professionnel réussi</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-icon" title="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/austenacademy/" target="_blank" class="social-icon" title="Instagram - @austenacademy">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/212660368628" target="_blank" class="social-icon" title="WhatsApp - +212 6 60 36 86 28">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="#" class="social-icon" title="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Liens Rapides</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home"><i class="fas fa-home"></i> Accueil</a></li>
+                        <li><a href="#about"><i class="fas fa-info-circle"></i> À Propos</a></li>
+                        <li><a href="#services"><i class="fas fa-graduation-cap"></i> Formations</a></li>
+                        <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Nos Formations</h4>
+                    <ul class="footer-links">
+                        <li><a href="#services"><i class="fas fa-flag-usa"></i> English Course</a></li>
+                        <li><a href="#services"><i class="fas fa-flag"></i> Français & Allemand</a></li>
+                        <li><a href="#services"><i class="fas fa-desktop"></i> Bureautique</a></li>
+                        <li><a href="#services"><i class="fas fa-calculator"></i> Soutien Scolaire</a></li>
+                        <li><a href="#services"><i class="fas fa-user-md"></i> Délégué Médical</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-map-marker-alt"></i> 6 Boulevard Hassan II, Résidence Al Hassan<br>5ᵉ étage, N°36 & 37 – Kénitra</p>
+                        <p><i class="fab fa-whatsapp"></i> +212 6 60 36 86 28</p>
+                        <p><i class="fab fa-whatsapp"></i> +212 7 10 96 96 94</p>
+                        <p><i class="fas fa-envelope"></i> info@austenacademymaroc.com</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2025 Austen Academy – Tous droits réservés.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
