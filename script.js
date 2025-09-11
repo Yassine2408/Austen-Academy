@@ -142,14 +142,29 @@ function initContactForm() {
         const course = formData.get('course');
         const message = formData.get('message');
         
-        // Basic validation
+        // Enhanced security validation
         if (!name || !email || !phone || !course || !message) {
             showNotification('Veuillez remplir tous les champs obligatoires', 'error');
             return;
         }
         
+        // Sanitize inputs to prevent XSS
+        const sanitizedName = sanitizeInput(name);
+        const sanitizedMessage = sanitizeInput(message);
+        
         if (!isValidEmail(email)) {
             showNotification('Veuillez entrer une adresse email valide', 'error');
+            return;
+        }
+        
+        if (!isValidPhone(phone)) {
+            showNotification('Veuillez entrer un numéro de téléphone valide', 'error');
+            return;
+        }
+        
+        // Rate limiting check (basic client-side)
+        if (!checkRateLimit()) {
+            showNotification('Trop de tentatives. Veuillez patienter avant de renvoyer.', 'error');
             return;
         }
         
@@ -172,10 +187,43 @@ function initContactForm() {
     });
 }
 
-// Email validation helper
+// Security helper functions
 function isValidEmail(email) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
+    return emailRegex.test(email) && email.length <= 254;
+}
+
+function isValidPhone(phone) {
+    // Moroccan phone number validation
+    const phoneRegex = /^(\+212|0)[567]\d{8}$/;
+    return phoneRegex.test(phone.replace(/\s/g, ''));
+}
+
+function sanitizeInput(input) {
+    // Basic XSS prevention
+    if (typeof input !== 'string') return '';
+    
+    return input
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#x27;')
+        .replace(/\//g, '&#x2F;')
+        .trim()
+        .substring(0, 1000); // Limit length
+}
+
+// Rate limiting (basic client-side protection)
+let lastSubmission = 0;
+const RATE_LIMIT_MS = 30000; // 30 seconds between submissions
+
+function checkRateLimit() {
+    const now = Date.now();
+    if (now - lastSubmission < RATE_LIMIT_MS) {
+        return false;
+    }
+    lastSubmission = now;
+    return true;
 }
 
 // Notification system
