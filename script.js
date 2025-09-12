@@ -168,22 +168,24 @@ function initContactForm() {
             return;
         }
         
-        // Simulate form submission
+        // Get CSRF token first
         submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
         submitButton.disabled = true;
-        
-        // Simulate API call delay
-        setTimeout(function() {
-            // Reset form
-            contactForm.reset();
-            submitButton.innerHTML = '<i class="fas fa-paper-plane"></i> Envoyer le message';
-            submitButton.disabled = false;
-            
-            showNotification('Demande envoyée avec succès! Nous vous contacterons dans les plus brefs délais.', 'success');
-            
-            // In a real application, you would send the data to your server here
-            console.log('Form submitted:', { name, email, phone, course, message });
-        }, 2000);
+
+        // Production backend submission
+        if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+            submitToBackend({ name: sanitizedName, email, phone, course, message: sanitizedMessage });
+        } else {
+            // Development mode - simulate submission
+            setTimeout(function() {
+                contactForm.reset();
+                submitButton.innerHTML = '<i class="fas fa-paper-plane"></i> Demander des informations';
+                submitButton.disabled = false;
+                
+                showNotification('Demande envoyée avec succès! Nous vous contacterons dans les plus brefs délais.', 'success');
+                console.log('Form submitted (dev mode):', { name, email, phone, course, message });
+            }, 2000);
+        }
     });
 }
 
@@ -224,6 +226,55 @@ function checkRateLimit() {
     }
     lastSubmission = now;
     return true;
+}
+
+// Secure backend form submission
+async function submitToBackend(formData) {
+    try {
+        // Get CSRF token
+        const csrfResponse = await fetch('/api/csrf-token', {
+            credentials: 'include'
+        });
+        const { csrfToken } = await csrfResponse.json();
+
+        // Submit form with CSRF protection
+        const response = await fetch('/api/contact', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-Token': csrfToken
+            },
+            credentials: 'include',
+            body: JSON.stringify(formData)
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+            // Success
+            document.getElementById('contact-form').reset();
+            const submitButton = document.querySelector('.submit-button');
+            submitButton.innerHTML = '<i class="fas fa-paper-plane"></i> Demander des informations';
+            submitButton.disabled = false;
+            
+            showNotification(result.message, 'success');
+        } else {
+            // Error from server
+            throw new Error(result.error || 'Erreur lors de l\'envoi');
+        }
+
+    } catch (error) {
+        console.error('Form submission error:', error);
+        
+        const submitButton = document.querySelector('.submit-button');
+        submitButton.innerHTML = '<i class="fas fa-paper-plane"></i> Demander des informations';
+        submitButton.disabled = false;
+        
+        showNotification(
+            error.message || 'Erreur de connexion. Veuillez réessayer plus tard.', 
+            'error'
+        );
+    }
 }
 
 // Notification system
