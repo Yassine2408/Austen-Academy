@@ -126,15 +126,13 @@ function initScrollEffects() {
     });
 }
 
-// Contact form handling
+// Contact form handling for Netlify Forms
 function initContactForm() {
     const contactForm = document.getElementById('contact-form');
     const submitButton = contactForm.querySelector('.submit-button');
     
     contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Get form data
+        // Get form data for validation
         const formData = new FormData(contactForm);
         const name = formData.get('name');
         const email = formData.get('email');
@@ -142,50 +140,42 @@ function initContactForm() {
         const course = formData.get('course');
         const message = formData.get('message');
         
-        // Enhanced security validation
+        // Client-side validation
         if (!name || !email || !phone || !course || !message) {
+            e.preventDefault();
             showNotification('Veuillez remplir tous les champs obligatoires', 'error');
             return;
         }
         
-        // Sanitize inputs to prevent XSS
-        const sanitizedName = sanitizeInput(name);
-        const sanitizedMessage = sanitizeInput(message);
-        
         if (!isValidEmail(email)) {
+            e.preventDefault();
             showNotification('Veuillez entrer une adresse email valide', 'error');
             return;
         }
         
         if (!isValidPhone(phone)) {
+            e.preventDefault();
             showNotification('Veuillez entrer un numéro de téléphone valide', 'error');
             return;
         }
         
-        // Rate limiting check (basic client-side)
+        // Rate limiting check
         if (!checkRateLimit()) {
+            e.preventDefault();
             showNotification('Trop de tentatives. Veuillez patienter avant de renvoyer.', 'error');
             return;
         }
         
-        // Get CSRF token first
+        // Show loading state
         submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
         submitButton.disabled = true;
-
-        // Production backend submission
-        if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
-            submitToBackend({ name: sanitizedName, email, phone, course, message: sanitizedMessage });
-        } else {
-            // Development mode - simulate submission
-            setTimeout(function() {
-                contactForm.reset();
-                submitButton.innerHTML = '<i class="fas fa-paper-plane"></i> Demander des informations';
-                submitButton.disabled = false;
-                
-                showNotification('Demande envoyée avec succès! Nous vous contacterons dans les plus brefs délais.', 'success');
-                console.log('Form submitted (dev mode):', { name, email, phone, course, message });
-            }, 2000);
-        }
+        
+        // Let Netlify handle the form submission naturally
+        // The form will submit to Netlify's servers automatically
+        // We'll show success message after a delay to simulate processing
+        setTimeout(function() {
+            showNotification('Demande envoyée avec succès! Nous vous contacterons dans les plus brefs délais.', 'success');
+        }, 1000);
     });
 }
 
@@ -228,54 +218,8 @@ function checkRateLimit() {
     return true;
 }
 
-// Secure backend form submission
-async function submitToBackend(formData) {
-    try {
-        // Get CSRF token
-        const csrfResponse = await fetch('/api/csrf-token', {
-            credentials: 'include'
-        });
-        const { csrfToken } = await csrfResponse.json();
-
-        // Submit form with CSRF protection
-        const response = await fetch('/api/contact', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRF-Token': csrfToken
-            },
-            credentials: 'include',
-            body: JSON.stringify(formData)
-        });
-
-        const result = await response.json();
-
-        if (response.ok) {
-            // Success
-            document.getElementById('contact-form').reset();
-            const submitButton = document.querySelector('.submit-button');
-            submitButton.innerHTML = '<i class="fas fa-paper-plane"></i> Demander des informations';
-            submitButton.disabled = false;
-            
-            showNotification(result.message, 'success');
-        } else {
-            // Error from server
-            throw new Error(result.error || 'Erreur lors de l\'envoi');
-        }
-
-    } catch (error) {
-        console.error('Form submission error:', error);
-        
-        const submitButton = document.querySelector('.submit-button');
-        submitButton.innerHTML = '<i class="fas fa-paper-plane"></i> Demander des informations';
-        submitButton.disabled = false;
-        
-        showNotification(
-            error.message || 'Erreur de connexion. Veuillez réessayer plus tard.', 
-            'error'
-        );
-    }
-}
+// Netlify Forms handles submission automatically
+// No backend submission needed
 
 // Notification system
 function showNotification(message, type = 'info') {
