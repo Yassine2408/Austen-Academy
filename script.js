@@ -126,12 +126,15 @@ function initScrollEffects() {
     });
 }
 
-// Contact form handling for Netlify Forms - ENHANCED VERSION
+// Contact form handling for Netlify Forms - NO REDIRECT VERSION
 function initContactForm() {
     const contactForm = document.getElementById('contact-form');
     const submitButton = contactForm.querySelector('.submit-button');
     
     contactForm.addEventListener('submit', function(e) {
+        // ALWAYS prevent default form submission to avoid redirect
+        e.preventDefault();
+        
         // Get form data for validation
         const name = contactForm.querySelector('input[name="name"]').value;
         const email = contactForm.querySelector('input[name="email"]').value;
@@ -141,19 +144,16 @@ function initContactForm() {
         
         // Client-side validation
         if (!name || !email || !phone || !course || !message) {
-            e.preventDefault();
             showNotification('Veuillez remplir tous les champs obligatoires', 'error');
             return;
         }
         
         if (!isValidEmail(email)) {
-            e.preventDefault();
             showNotification('Veuillez entrer une adresse email valide', 'error');
             return;
         }
         
         if (!isValidPhone(phone)) {
-            e.preventDefault();
             showNotification('Veuillez entrer un numéro de téléphone valide', 'error');
             return;
         }
@@ -162,18 +162,51 @@ function initContactForm() {
         submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
         submitButton.disabled = true;
         
-        // Let Netlify handle the form submission naturally
-        // The form will submit to Netlify and redirect to thank you page
-        // We'll intercept this and show our custom notification instead
-        console.log('Form submitting to Netlify...');
-        
-        // After a short delay, show success notification and reset form
-        setTimeout(function() {
-            showBeautifulSuccessNotification();
-            contactForm.reset();
+        // Submit to Netlify using fetch API (no redirect)
+        submitToNetlify(contactForm).then(function(success) {
+            if (success) {
+                // Show success notification and reset form
+                showBeautifulSuccessNotification();
+                contactForm.reset();
+            } else {
+                // Show error notification
+                showNotification('Erreur lors de l\'envoi. Veuillez réessayer.', 'error');
+            }
+        }).catch(function(error) {
+            console.error('Form submission error:', error);
+            showNotification('Erreur lors de l\'envoi. Veuillez réessayer.', 'error');
+        }).finally(function() {
+            // Reset button state
             submitButton.innerHTML = '<i class="fas fa-paper-plane"></i> Demander des informations';
             submitButton.disabled = false;
-        }, 2000);
+        });
+    });
+}
+
+// Submit form to Netlify without redirect
+function submitToNetlify(form) {
+    return new Promise(function(resolve, reject) {
+        // Create FormData object
+        const formData = new FormData(form);
+        
+        // Submit to Netlify using fetch
+        fetch('/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams(formData).toString()
+        })
+        .then(function(response) {
+            if (response.ok) {
+                resolve(true);
+            } else {
+                resolve(false);
+            }
+        })
+        .catch(function(error) {
+            reject(error);
+        });
     });
 }
 
