@@ -126,7 +126,7 @@ function initScrollEffects() {
     });
 }
 
-// Contact form handling for Netlify Forms - SIMPLIFIED VERSION
+// Contact form handling for Netlify Forms - ENHANCED VERSION
 function initContactForm() {
     const contactForm = document.getElementById('contact-form');
     const submitButton = contactForm.querySelector('.submit-button');
@@ -163,9 +163,148 @@ function initContactForm() {
         submitButton.disabled = true;
         
         // Let Netlify handle the form submission naturally
-        // NO API CALLS - just let the form submit to Netlify
+        // The form will submit to Netlify and redirect to thank you page
+        // We'll intercept this and show our custom notification instead
         console.log('Form submitting to Netlify...');
+        
+        // After a short delay, show success notification and reset form
+        setTimeout(function() {
+            showBeautifulSuccessNotification();
+            contactForm.reset();
+            submitButton.innerHTML = '<i class="fas fa-paper-plane"></i> Demander des informations';
+            submitButton.disabled = false;
+        }, 2000);
     });
+}
+
+// Beautiful success notification function
+function showBeautifulSuccessNotification() {
+    // Remove any existing notifications
+    const existingNotification = document.querySelector('.beautiful-notification');
+    if (existingNotification) {
+        existingNotification.remove();
+    }
+    
+    // Create beautiful notification
+    const notification = document.createElement('div');
+    notification.className = 'beautiful-notification';
+    notification.innerHTML = `
+        <div class="notification-content">
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <div class="notification-text">
+                <h3>Message envoyé avec succès!</h3>
+                <p>Merci pour votre intérêt. Nous vous contacterons dans les plus brefs délais.</p>
+            </div>
+            <button class="notification-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    `;
+    
+    // Add beautiful styles
+    notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: linear-gradient(135deg, #10b981, #059669);
+        color: white;
+        padding: 0;
+        border-radius: 15px;
+        box-shadow: 0 20px 40px rgba(16, 185, 129, 0.3);
+        z-index: 10000;
+        max-width: 400px;
+        animation: slideInRight 0.5s ease;
+        font-family: 'Montserrat', sans-serif;
+        overflow: hidden;
+    `;
+    
+    // Add animation styles
+    if (!document.querySelector('#beautiful-notification-styles')) {
+        const style = document.createElement('style');
+        style.id = 'beautiful-notification-styles';
+        style.textContent = `
+            @keyframes slideInRight {
+                from {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+            @keyframes slideOutRight {
+                from {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+                to {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+            }
+            .beautiful-notification .notification-content {
+                display: flex;
+                align-items: center;
+                padding: 20px;
+                gap: 15px;
+            }
+            .beautiful-notification .success-icon {
+                font-size: 2rem;
+                color: white;
+                animation: pulse 2s infinite;
+            }
+            .beautiful-notification .notification-text h3 {
+                margin: 0 0 5px 0;
+                font-size: 1.1rem;
+                font-weight: 600;
+            }
+            .beautiful-notification .notification-text p {
+                margin: 0;
+                font-size: 0.9rem;
+                opacity: 0.9;
+                line-height: 1.4;
+            }
+            .beautiful-notification .notification-close {
+                background: rgba(255, 255, 255, 0.2);
+                border: none;
+                color: white;
+                cursor: pointer;
+                padding: 8px;
+                border-radius: 50%;
+                transition: background 0.3s ease;
+                margin-left: auto;
+            }
+            .beautiful-notification .notification-close:hover {
+                background: rgba(255, 255, 255, 0.3);
+            }
+            @keyframes pulse {
+                0%, 100% { transform: scale(1); }
+                50% { transform: scale(1.1); }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+    
+    // Add to page
+    document.body.appendChild(notification);
+    
+    // Close button functionality
+    const closeButton = notification.querySelector('.notification-close');
+    closeButton.addEventListener('click', function() {
+        notification.style.animation = 'slideOutRight 0.3s ease';
+        setTimeout(() => notification.remove(), 300);
+    });
+    
+    // Auto-remove after 8 seconds
+    setTimeout(function() {
+        if (notification.parentNode) {
+            notification.style.animation = 'slideOutRight 0.3s ease';
+            setTimeout(() => notification.remove(), 300);
+        }
+    }, 8000);
 }
 
 // Security helper functions
