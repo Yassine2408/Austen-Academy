@@ -126,19 +126,18 @@ function initScrollEffects() {
     });
 }
 
-// Contact form handling for Netlify Forms
+// Contact form handling for Netlify Forms - SIMPLIFIED VERSION
 function initContactForm() {
     const contactForm = document.getElementById('contact-form');
     const submitButton = contactForm.querySelector('.submit-button');
     
     contactForm.addEventListener('submit', function(e) {
         // Get form data for validation
-        const formData = new FormData(contactForm);
-        const name = formData.get('name');
-        const email = formData.get('email');
-        const phone = formData.get('phone');
-        const course = formData.get('course');
-        const message = formData.get('message');
+        const name = contactForm.querySelector('input[name="name"]').value;
+        const email = contactForm.querySelector('input[name="email"]').value;
+        const phone = contactForm.querySelector('input[name="phone"]').value;
+        const course = contactForm.querySelector('select[name="course"]').value;
+        const message = contactForm.querySelector('textarea[name="message"]').value;
         
         // Client-side validation
         if (!name || !email || !phone || !course || !message) {
@@ -159,23 +158,13 @@ function initContactForm() {
             return;
         }
         
-        // Rate limiting check
-        if (!checkRateLimit()) {
-            e.preventDefault();
-            showNotification('Trop de tentatives. Veuillez patienter avant de renvoyer.', 'error');
-            return;
-        }
-        
         // Show loading state
         submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
         submitButton.disabled = true;
         
         // Let Netlify handle the form submission naturally
-        // The form will submit to Netlify's servers automatically
-        // We'll show success message after a delay to simulate processing
-        setTimeout(function() {
-            showNotification('Demande envoyée avec succès! Nous vous contacterons dans les plus brefs délais.', 'success');
-        }, 1000);
+        // NO API CALLS - just let the form submit to Netlify
+        console.log('Form submitting to Netlify...');
     });
 }
 
