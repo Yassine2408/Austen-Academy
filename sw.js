@@ -1,5 +1,5 @@
 // Service Worker for Austen Academy PWA
-const CACHE_NAME = 'austen-academy-v1.0.0';
+const CACHE_NAME = 'austen-academy-v2.0.0';
 const urlsToCache = [
     '/',
     '/index.html',
